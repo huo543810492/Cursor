@@ -36,6 +36,13 @@ page {
   font-size: 32rpx;
 }
 
+.btn-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .submit-btn {
   width: 100%;
   height: 88rpx;
@@ -45,6 +52,10 @@ page {
   border-radius: 44rpx;
   font-size: 32rpx;
   margin-top: 320rpx;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .image-section {

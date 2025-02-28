@@ -6,11 +6,13 @@
       bindinput="handleInput"
       value="{{inputText}}"
     />
-    <button 
-      class="submit-btn" 
-      bindtap="handleSubmit"
-      loading="{{isLoading}}"
-    >生成图片</button>
+    <view class="btn-wrapper">
+      <button 
+        class="submit-btn" 
+        bindtap="handleSubmit"
+        loading="{{isLoading}}"
+      >生成图片</button>
+    </view>
   </view>
   
   <view class="image-section" wx:if="{{imageUrl}}">
