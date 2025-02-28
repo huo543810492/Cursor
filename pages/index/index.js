@@ -23,13 +23,55 @@ Page({
 
     this.setData({ isLoading: true })
 
-    // TODO: 这里将来需要替换为实际的 coze API 调用
-    // 示例代码：
-    setTimeout(() => {
-      this.setData({
-        imageUrl: 'https://example.com/sample-image.jpg',
-        isLoading: false
-      })
-    }, 1000)
+    wx.request({
+      url: 'https://api.coze.com/v1/workflow/run',
+      method: 'POST',
+      header: {
+        'Authorization': 'Bearer pat_hhqzNxRO8smf7HCmPzKd1gy0gVLP8cOIdKHvtJlmxRhkcfTnfYkQrn3d0hh8S8uW',
+        'Content-Type': 'application/json',
+        'Host': 'api.coze.com',
+        'Connection': 'keep-alive'
+      },
+      data: {
+        workflow_id: '7476409451307745287',
+        parameters: {
+          prompt: this.data.inputText
+        }
+      },
+      success: (res) => {
+        wx.hideLoading();
+        if (res.statusCode === 200 && res.data && res.data.code === 0) {
+          try {
+            const output = JSON.parse(res.data.data).output;
+            this.setData({
+              imageUrl: output
+            });
+          } catch (error) {
+            console.error('解析返回数据异常:', error);
+            wx.showToast({
+              title: '解析返回数据异常',
+              icon: 'none'
+            });
+          }
+        } else {
+          wx.showToast({
+            title: '生成失败，请重试',
+            icon: 'none'
+          });
+          console.error('工作流调用异常:', res.data);
+        }
+      },
+      fail: (error) => {
+        wx.hideLoading();
+        wx.showToast({
+          title: '网络请求异常',
+          icon: 'none'
+        });
+        console.error('工作流调用异常:', error);
+      },
+      complete: () => {
+        this.setData({ isLoading: false })
+      }
+    });
   }
 })
