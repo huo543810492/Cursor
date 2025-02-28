@@ -21,18 +21,19 @@ page {
 .input-section {
   width: 100%;
   max-width: 600rpx;
-  margin-top: 200rpx;
+  margin-top: 300rpx;
 }
 
 .text-input {
   width: 100%;
-  height: 80rpx;
+  height: 88rpx;
   border: 1px solid #e0e0e0;
-  border-radius: 8rpx;
-  padding: 0 20rpx;
-  margin-bottom: 40rpx;
+  border-radius: 12rpx;
+  padding: 0 30rpx;
+  margin-bottom: 60rpx;
   box-sizing: border-box;
   background-color: #fff;
+  font-size: 32rpx;
 }
 
 .submit-btn {
@@ -43,6 +44,7 @@ page {
   color: white;
   border-radius: 44rpx;
   font-size: 32rpx;
+  margin-top: 320rpx;
 }
 
 .image-section {
@@ -50,7 +52,7 @@ page {
   max-width: 600rpx;
   display: flex;
   justify-content: center;
-  margin-top: 60rpx;
+  margin-top: 80rpx;
 }
 
 .generated-image {
