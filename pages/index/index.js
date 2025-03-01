@@ -3,7 +3,9 @@ Page({
   data: {
     inputText: '',
     imageUrl: '',
-    isLoading: false
+    isLoading: false,
+    title: '',
+    subtitle: ''
   },
 
   handleInput(e) {
@@ -35,16 +37,19 @@ Page({
       data: {
         workflow_id: '7476409451307745287',
         parameters: {
-          prompt: this.data.inputText
+          inputstring: this.data.inputText
         }
       },
       success: (res) => {
         wx.hideLoading();
         if (res.statusCode === 200 && res.data && res.data.code === 0) {
           try {
-            const output = JSON.parse(res.data.data).output;
+            const responseData = JSON.parse(res.data.data);
+            console.log('解析后的数据:', responseData);
             this.setData({
-              imageUrl: output
+              imageUrl: responseData.output,
+              title: responseData.title ,
+              subtitle: responseData.subtitle
             });
           } catch (error) {
             console.error('解析返回数据异常:', error);

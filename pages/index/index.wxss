@@ -16,12 +16,14 @@ page {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .input-section {
   width: 100%;
   max-width: 600rpx;
-  margin-top: 300rpx;
+  margin-top: 0;
+  margin-bottom: 40rpx;
 }
 
 .text-input {
@@ -30,7 +32,7 @@ page {
   border: 1px solid #e0e0e0;
   border-radius: 12rpx;
   padding: 0 30rpx;
-  margin-bottom: 60rpx;
+  margin-bottom: 20rpx;
   box-sizing: border-box;
   background-color: #fff;
   font-size: 32rpx;
@@ -51,19 +53,34 @@ page {
   color: white;
   border-radius: 44rpx;
   font-size: 32rpx;
-  margin-top: 320rpx;
+  margin-top: 60rpx;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.image-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10rpx;
+}
+
+.image-subtitle {
+  font-size: 28rpx;
+  color: #666;
+  text-align: center;
+  margin-bottom: 20rpx;
+}
+
 .image-section {
   width: 100%;
   max-width: 600rpx;
   display: flex;
-  justify-content: center;
-  margin-top: 80rpx;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30rpx;
 }
 
 .generated-image {

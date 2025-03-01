@@ -16,6 +16,8 @@
   </view>
   
   <view class="image-section" wx:if="{{imageUrl}}">
+    <view class="image-title">{{title}}</view>
+    <view class="image-subtitle">{{subtitle}}</view>
     <image class="generated-image" src="{{imageUrl}}" mode="widthFix"></image>
   </view>
 </view> 
